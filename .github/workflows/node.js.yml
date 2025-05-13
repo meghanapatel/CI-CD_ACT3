@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Message Printing
-        run: echo "Hello from GitHub Actions! First Activity"
+        run: echo "Hello from GitHub Actions! Second Activity"
