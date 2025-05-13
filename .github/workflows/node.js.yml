@@ -28,5 +28,5 @@ jobs:
       - name: Codecov reporter
         uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
         with:
-          coverage_file: coverage/lcov.info
-          report_title: 'Dummy Code Coverage Report'
+          reportType: lcov
+          args: coverage/lcov.info
