@@ -15,3 +15,9 @@ jobs:
 
       - name: Message Printing
         run: echo "Hello from GitHub Actions! Second Activity"
+
+      - name: Codecov reporter
+        uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
+        with:
+          coverage_file: coverage/lcov.info
+          report_title: 'Code Coverage Report'
