@@ -16,14 +16,39 @@ jobs:
       - name: Message Printing
         run: echo "Hello from GitHub Actions! Second Activity"
 
-      - name: Generate dummy JSON coverage report
+      - name: Generate proper dummy JSON coverage report
         run: |
           mkdir -p coverage/json
-          echo '{' > coverage/json/coverage-final.json
-          echo '  "dummy.js": {' >> coverage/json/coverage-final.json
-          echo '    "lines": { "1": 1, "2": 1 }' >> coverage/json/coverage-final.json
-          echo '  }' >> coverage/json/coverage-final.json
-          echo '}' >> coverage/json/coverage-final.json
+          cat <<EOF > coverage/json/coverage-final.json
+          {
+            "total": {
+              "lines": {
+                "total": 2,
+                "covered": 2,
+                "skipped": 0,
+                "pct": 100
+              },
+              "statements": {
+                "total": 2,
+                "covered": 2,
+                "skipped": 0,
+                "pct": 100
+              },
+              "functions": {
+                "total": 1,
+                "covered": 1,
+                "skipped": 0,
+                "pct": 100
+              },
+              "branches": {
+                "total": 0,
+                "covered": 0,
+                "skipped": 0,
+                "pct": 100
+              }
+            }
+          }
+          EOF
 
       - name: Codecov reporter
         uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
