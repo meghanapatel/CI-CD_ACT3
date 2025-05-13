@@ -18,15 +18,15 @@ jobs:
 
       - name: Generate dummy JSON coverage report
         run: |
-          mkdir -p coverage/lcov
-          echo '{' > coverage/lcov/coverage-final.json
-          echo '  "dummy.js": {' >> coverage/lcov/coverage-final.json
-          echo '    "lines": { "1": 1, "2": 1 }' >> coverage/lcov/coverage-final.json
-          echo '  }' >> coverage/lcov/coverage-final.json
-          echo '}' >> coverage/lcov/coverage-final.json
+          mkdir -p coverage/json
+          echo '{' > coverage/json/coverage-final.json
+          echo '  "dummy.js": {' >> coverage/json/coverage-final.json
+          echo '    "lines": { "1": 1, "2": 1 }' >> coverage/json/coverage-final.json
+          echo '  }' >> coverage/json/coverage-final.json
+          echo '}' >> coverage/json/coverage-final.json
 
       - name: Codecov reporter
         uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
         with:
           reportType: json
-          args: coverage/lcov/coverage-final.json
+          args: coverage/json/coverage-final.json
