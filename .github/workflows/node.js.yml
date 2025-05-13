@@ -15,20 +15,3 @@ jobs:
 
       - name: Message Printing
         run: echo "Hello from GitHub Actions! First Activity"
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests with Coverage
-        run: npm test -- --coverage
-
-      - name: Upload Coverage Report
-        uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
-        with:
-          coverage_file: coverage/lcov.info
-          report_title: 'Code Coverage Report'
