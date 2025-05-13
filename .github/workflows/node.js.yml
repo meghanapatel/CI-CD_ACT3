@@ -21,7 +21,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        # Removed cache to avoid lock file error
+        # cache: 'npm'
 
     - name: Install dependencies
       run: npm install
@@ -37,4 +38,4 @@ jobs:
     needs: build
     steps:
     - name: Print a message
-      run: echo "Build complete! Hello from the print-message job!"
+      run: echo "✅ Build complete! Hello from the print-message job!"
