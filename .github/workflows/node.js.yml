@@ -7,11 +7,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  say-hello:
+  First-activity-message-printing:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Say Hello
-        run: echo "👋 Hello from GitHub Actions!"
+      - name: Message Printing
+        run: echo "Hello from GitHub Actions!  First Activity"
