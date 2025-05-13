@@ -16,8 +16,17 @@ jobs:
       - name: Message Printing
         run: echo "Hello from GitHub Actions! Second Activity"
 
+      - name: Generate dummy coverage report
+        run: |
+          mkdir -p coverage
+          echo "TN:" > coverage/lcov.info
+          echo "SF:dummy.js" >> coverage/lcov.info
+          echo "DA:1,1" >> coverage/lcov.info
+          echo "DA:2,1" >> coverage/lcov.info
+          echo "end_of_record" >> coverage/lcov.info
+
       - name: Codecov reporter
         uses: AlexRogalskiy/github-action-coverage-reporter@v2.0.1
         with:
           coverage_file: coverage/lcov.info
-          report_title: 'Code Coverage Report'
+          report_title: 'Dummy Code Coverage Report'
